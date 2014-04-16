@@ -56,3 +56,14 @@ Partager tous les tags sur origin:
 Créer une branche feature :
 > git checkout -b myfeature develop
 
+Inclure une feature terminée dans develop :
+> git checkout develop  *(retour à la branche develop)*
+
+> git merge --no-ff myfeature   *(fusion de myfeature dans develop)*
+
+> git branch -d myfeature   *(cloture de myfeature)*
+
+> git push origin develop   *(envoi des changement sur origin)*
+
+
+
