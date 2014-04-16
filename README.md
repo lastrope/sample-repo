@@ -85,7 +85,7 @@ Terminer une branche release :
 
 > git merge --no-ff release-0.2.0    *(fusion de release dans master)*
 
-> git tag -a 1.2    *(Tag de la version dans master)*
+> git tag -a 0.2.0    *(Tag de la version dans master)*
 
 > git checkout develop    *(switch dans develop)*
 
