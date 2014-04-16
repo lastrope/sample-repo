@@ -6,9 +6,9 @@ http://nvie.com/posts/a-successful-git-branching-model/
 - **origin/master** : branche contenant les releases de production. Utilisation de tags pour définir les *versions*.
 - **origin/develop** : branche contenant les développements en cours. Sert à intégrer les développements. *Automatic nightly builds*
 - **_developper_/feature-_name_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
-- Feature **PEUT** être créée à partir de *develop*
-- Feature **DOIT** être fusionnée dans *develop*
-
+- *Rêgle:* feature **PEUT** être créée à partir de *develop*
+- *Rêgle:* feature **DOIT** être fusionnée dans *develop*
+- *Rêgle:* feature peut avoir n'importe quel nom excepté *master*, *develop*, *release-...*, *hotfix-...*
 
 ***********
 ## Créer un repo sur git hub
@@ -38,7 +38,15 @@ créer un repo "origin" sur le serveur
 Envoyer le commit dans la branche master de origin
 > git push -u origin master
 
+### Gestion des tags
+Voir les tags:
+> git tag
+
+Créer un tag:
+> git tag -a 0.1.0 -m 'Version 0.1.0'
+
 **********
 ## Branche feature
 Créer une branche feature :
 > git checkout -b myfeature develop
+
