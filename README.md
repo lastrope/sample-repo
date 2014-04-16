@@ -42,8 +42,14 @@ Envoyer le commit dans la branche master de origin
 Voir les tags:
 > git tag
 
-Créer un tag:
+Créer un tag local:
 > git tag -a 0.1.0 -m 'Version 0.1.0'
+
+Partager un tag sur origin:
+> git push origin 0.1.0
+
+Partager tous les tags sur origin:
+> git push origin --tags
 
 **********
 ## Branche feature
