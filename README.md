@@ -91,7 +91,7 @@ Terminer une branche release :
 
 > git merge --no-ff release-0.2.0    *(fusion de release dans develop)*
 
-> git branch -d release-1.2   *(cloture de release)*
+> git branch -d release-0.2.0   *(cloture de release)*
 
 
 
