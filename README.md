@@ -5,7 +5,7 @@ http://nvie.com/posts/a-successful-git-branching-model/
 
 - **origin/master** : branche contenant les releases de production. Utilisation de tags pour définir les *versions*.
 - **origin/develop** : branche contenant les développements en cours. Sert à intégrer les développements. *Automatic nightly builds*
-- **_<developper>_/feature-_<name>_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
+- **_developper_/feature-_name_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
 - Feature **PEUT** être créée à partir de *develop*
 - Feature **DOIT** être fusionner dans *develop*
 
