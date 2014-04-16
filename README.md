@@ -3,12 +3,18 @@ Bon usage de GIT : 15/04/2014
 Repository de test pour expérimenter :
 http://nvie.com/posts/a-successful-git-branching-model/
 
-- **origin/master** : branche contenant les releases de production. Utilisation de tags pour définir les *versions*.
-- **origin/develop** : branche contenant les développements en cours. Sert à intégrer les développements. *Automatic nightly builds*
-- **_developper_/feature-_name_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
+- **origin / master** : branche contenant les releases de production. Utilisation de tags pour définir les *versions*.
+- **origin / develop** : branche contenant les développements en cours. Sert à intégrer les développements. *Automatic nightly builds*
+- **_developper_ / feature-_name_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
 - *Rêgle:* feature **PEUT** être créée à partir de *develop*
 - *Rêgle:* feature **DOIT** être fusionnée dans *develop*
 - *Rêgle:* feature peut avoir n'importe quel nom excepté *master*, *develop*, *release-...*, *hotfix-...*
+- **origin / release-_targetVersion_** : branche servant à la préparation de la prochaine version de production.
+- *Rêgle:* release **PEUT** être créée à partir de *develop*
+- *Rêgle:* release **DOIT** être fusionnée dans *develop* **ET** *master*
+- *Rêgle:* release **DOIT** être nommée **release-_targetVersion_**
+- *Rêgle:* le bon moment pour créer *release* est atteint lorsque la branche *develop* contient toutes le features (en cours de finalisation) qui doivent être livrées en production. Le numéro de version doit être fixé à ce moment là.
+
 
 ***********
 ## Créer un repo sur git hub
@@ -55,4 +61,39 @@ Partager tous les tags sur origin:
 ## Branche feature
 Créer une branche feature :
 > git checkout -b myfeature develop
+
+Inclure une feature terminée dans develop :
+> git checkout develop  *(retour à la branche develop)*
+
+> git merge --no-ff myfeature   *(fusion de myfeature dans develop)*
+
+> git branch -d myfeature   *(cloture de myfeature)*
+
+> git push origin develop   *(envoi des changements sur origin)*
+
+**********
+## Branche release
+Créer une branche release :
+> git checkout -b release-0.2.0 develop
+
+> Mise au point de la version 0.2.0. Des fichiers sont modifiés dans la branche release.
+
+> git commit -a -m "Finalization of 0.2.0"    *(Commit des fichiers)*
+
+Terminer une branche release :
+> git checkout master    *(switch dans master)*
+
+> git merge --no-ff release-0.2.0    *(fusion de release dans master)*
+
+> git tag -a 1.2    *(Tag de la version dans master)*
+
+> git checkout develop    *(switch dans develop)*
+
+> git merge --no-ff release-0.2.0    *(fusion de release dans develop)*
+
+> git branch -d release-1.2   *(cloture de release)*
+
+
+
+
 
