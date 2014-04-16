@@ -7,21 +7,20 @@ http://nvie.com/posts/a-successful-git-branching-model/
 - **origin/develop** : branche contenant les développements en cours. Sert à intégrer les développements. *Automatic nightly builds*
 - **_developper_/feature-_name_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
 - Feature **PEUT** être créée à partir de *develop*
-- Feature **DOIT** être fusionner dans *develop*
+- Feature **DOIT** être fusionnée dans *develop*
+
 
 ***********
 ## Créer un repo sur git hub
 Voir https://help.github.com/articles/create-a-repo
 
-***********
-## S'identifier  
+### S'identifier  
 (--global = valable pour toute la machine. Sans --global, valable pour le repo locale seulement)
 > git config --global user.name "yginieys"
 
 > git config --global user.email "yginieys@stepnet.fr"
 
-***********
-## Créer un repo local
+### Créer un repo local
 > mkdir sample-repo
 
 > cd sample-repo
@@ -32,11 +31,14 @@ Voir https://help.github.com/articles/create-a-repo
 
 > git commit -m 'first commit'
 
-***********
-## Pusher dans un repo distant
+### Pusher dans un repo distant
 créer un repo "origin" sur le serveur
 > git remote add origin https://github.com/yginieys/sample-repo.git  
 
 Envoyer le commit dans la branche master de origin
 > git push -u origin master
 
+**********
+## Branche feature
+Créer une branche feature :
+> git checkout -b myfeature develop
