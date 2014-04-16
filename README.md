@@ -73,11 +73,27 @@ Inclure une feature terminée dans develop :
 
 **********
 ## Branche release
-Créer une branche feature :
+Créer une branche release :
 > git checkout -b release-0.2.0 develop
 
 > Mise au point de la version 0.2.0. Des fichiers sont modifiés dans la branche release.
 
-> git commit -a -m "Bumped version number to 1.2"    *(Commit des fichiers)*
+> git commit -a -m "Finalization of 0.2.0"    *(Commit des fichiers)*
+
+Terminer une branche release :
+> git checkout master    *(switch dans master)*
+
+> git merge --no-ff release-0.2.0    *(fusion de release dans master)*
+
+> git tag -a 1.2    *(Tag de la version dans master)*
+
+> git checkout develop    *(switch dans develop)*
+
+> git merge --no-ff release-0.2.0    *(fusion de release dans develop)*
+
+> git branch -d release-1.2   *(cloture de release)*
+
+
+
 
 
