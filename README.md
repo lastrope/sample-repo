@@ -14,7 +14,9 @@ http://nvie.com/posts/a-successful-git-branching-model/
 - *Rêgle:* release **DOIT** être fusionnée dans *develop* **ET** *master*
 - *Rêgle:* release **DOIT** être nommée **release-_targetVersion_**
 - *Rêgle:* le bon moment pour créer *release* est atteint lorsque la branche *develop* contient toutes le features (en cours de finalisation) qui doivent être livrées en production. Le numéro de version doit être fixé à ce moment là.
-
+- **origin / hotfix-_targetVersion_** : branche servant à correction d'un bug majeur en production. La branche develop est instable et ne peut être utilisée pour la correction.
+- *Rêgle:* hotfix **DOIT** être créée à partir de *master*
+- *Rêgle:* hotfix **DOIT** être fusionnée dans *master* **ET** *develop* **OU** *release* si elle existe.
 
 ***********
 ## Créer un repo sur git hub
@@ -93,7 +95,24 @@ Terminer une branche release :
 
 > git branch -d release-0.2.0   *(cloture de release)*
 
+**********
+## Branche hotfix
+Créer une branche hotfix :
+> git checkout -b hotfix-0.2.1 master
 
+> Correction du bug dans hotfix
 
+> git commit -a -m "Correctif 0.2.1"   *(commit du correctif dans hotfix)*
 
+> git checkout master   *(retour dans master)*
+
+> git merge --no-ff hotfix-0.2.1   *(Fusion de hotfix dans master)*
+
+> git tag -a 0.2.1   *(Tag de la version dans master)*
+
+> git checkout develop   *(retour dans develop **OU** release si elle existe)*
+
+> git merge --no-ff hotfix-0.2.1    *(Fusion de hotfix dans develop **OU** release si elle existe)*
+
+> git branch -d hotfix-0.2.1    *(cloture de hotfix)*
 
