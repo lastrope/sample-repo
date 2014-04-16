@@ -3,6 +3,12 @@ Bon usage de GIT : 15/04/2014
 Repository de test pour expérimenter :
 http://nvie.com/posts/a-successful-git-branching-model/
 
+- **origin/master** : branche contenant les releases de production. Utilisation de tags pour définir les *versions*.
+- **origin/develop** : branche contenant les développements en cours. Sert à intégrer les développements. *Automatic nightly builds*
+- **_<developper>_/feature-_<name>_** : branche contenant une feature en cours de developpement. (habituellement présente uniquement sur les postes de développeurs)
+- Feature **PEUT** être créée à partir de *develop*
+- Feature **DOIT** être fusionner dans *develop*
+
 ***********
 ## Créer un repo sur git hub
 Voir https://help.github.com/articles/create-a-repo
@@ -11,6 +17,7 @@ Voir https://help.github.com/articles/create-a-repo
 ## S'identifier  
 (--global = valable pour toute la machine. Sans --global, valable pour le repo locale seulement)
 > git config --global user.name "yginieys"
+
 > git config --global user.email "yginieys@stepnet.fr"
 
 ***********
@@ -32,3 +39,4 @@ créer un repo "origin" sur le serveur
 
 Envoyer le commit dans la branche master de origin
 > git push -u origin master
+
